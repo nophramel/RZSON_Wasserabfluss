@@ -11,13 +11,13 @@ import (
 func PrintMenu() {
 	fmt.Println(`
 ##############################################################################################
-#**************************************** Willkommen *****************************************
+#**************************** Wasserstände RZSON auf einen Blick *****************************
 #***************************** Wählen Sie Ihre Option unten aus ******************************
 #
 # r.	Aktualisiere die Messwerte.
 #
 # c.	Leere die Ausgabe und zeige die Übersicht an
-	# q.	App beenden
+# q.	App beenden
 	`)
 }
 
