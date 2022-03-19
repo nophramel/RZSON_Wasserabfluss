@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"RZSON_Wasserstaende/models"
-	"RZSON_Wasserstaende/views"
 	"bufio"
+	"github.com/nophramel/RZSON_Wasserstaende/models"
+	"github.com/nophramel/RZSON_Wasserstaende/views"
 	"log"
 	"os"
 	"strings"
