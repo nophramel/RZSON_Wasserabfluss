@@ -7,13 +7,16 @@ import (
 	"log"
 	"os"
 	"strings"
+	"time"
 )
 
+//Run Starts the application
 func Run() {
 	views.Clear()
-	views.PrintMenu()
+	views.PrintHeader()
 	stations, virtualStation := getLatestData()
 	views.PrintStations(stations, virtualStation)
+	views.PrintMenu()
 
 	for true {
 		executeCommand()
@@ -61,15 +64,15 @@ func parseCommand(input string) {
 
 	case input == "c":
 		// Clear view and print menu
-		//
+		views.PrintHeader()
 		views.Clear()
 		views.PrintMenu()
 		break
 	case input == "q":
-		// Terminate application
-		//
+		// Terminate application with a 5 sec delay
 		views.Clear()
 		views.PrintGoodbye()
+		time.Sleep(5 * time.Second)
 		views.ShutDown()
 		break
 	}

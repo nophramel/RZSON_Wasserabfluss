@@ -23,9 +23,9 @@ type MeasurementData struct {
 	LastTimeStamp              time.Time
 	MaxReadingLast24h          float64
 	MaxReadingTimeStampLast24h time.Time
-	GsValue                    string
 }
 
+// SetupVirtualStation Setting up the virtual Station RZSON to calculate estimated reading for Niedergösgen
 func SetupVirtualStation() Messstation {
 	var station01 Messstation
 	station01.Station = "RZSON Niedergösgen"
@@ -33,7 +33,7 @@ func SetupVirtualStation() Messstation {
 	return station01
 }
 
-//Setting up the Station details
+// SetupStations Hardcoded Station details
 func SetupStations() []Messstation {
 	var stations []Messstation
 	var station01 Messstation
@@ -65,6 +65,7 @@ func SetupStations() []Messstation {
 	return stations
 }
 
+// ReadCSVFromUrl Get .csv from URL
 func ReadCSVFromUrl(url string) ([][]string, error) {
 	table, err := http.Get(url)
 	if err != nil {
@@ -80,9 +81,9 @@ func ReadCSVFromUrl(url string) ([][]string, error) {
 	}
 
 	return data, nil
-
 }
 
+// Parses .csv Table into 2d Slice (Time;value)
 func createMeasurementData(data [][]string) MeasurementData {
 	var measurementData MeasurementData
 	for i, line := range data {
@@ -101,7 +102,7 @@ func createMeasurementData(data [][]string) MeasurementData {
 	return measurementData
 }
 
-//Calculating last and max reading
+// CalculateData Determines the max reading with timestamp for last 24h
 func CalculateData(data [][]string, messstation *Messstation) {
 	if len(data) == 0 {
 		return
@@ -114,7 +115,7 @@ func CalculateData(data [][]string, messstation *Messstation) {
 	messstation.Measurements.LastReading = lastValue
 	timeValue, _ := time.Parse(time.RFC3339, data[columnCount][0])
 	messstation.Measurements.LastTimeStamp = timeValue
-	// Determines the first timestamp from 24h ago (one reading every 5min (24*60)/5 = 288 -1 for header
+	// Determines the first timestamp from 24h ago (one reading every 5min (24*60)/5 = 288 (-1 to skip header)
 	last24h := columnCount - 287
 	// Determines the highest reading for the past 24h
 	maxValue := 0.0
@@ -129,13 +130,3 @@ func CalculateData(data [][]string, messstation *Messstation) {
 	messstation.Measurements.MaxReadingTimeStampLast24h, _ = time.Parse(time.RFC3339, maxTimestamp)
 
 }
-
-//// EnableDataPersistence enables the data persistence
-//func EnableDataPersistence() {
-//	dataPersistence = true
-//}
-//
-//// DisableDataPersistence disables the data persistence
-//func DisableDataPersistence() {
-//	dataPersistence = false
-//}
