@@ -2,7 +2,7 @@ package views
 
 import (
 	"fmt"
-	"github.com/nophramel/RZSON_Wasserstaende/models"
+	"github.com/nophramel/RZSON_Wasserabfluss/models"
 	"os"
 	"os/exec"
 )

@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"bufio"
-	"github.com/nophramel/RZSON_Wasserstaende/models"
-	"github.com/nophramel/RZSON_Wasserstaende/views"
+	"github.com/nophramel/RZSON_Wasserabfluss/models"
+	"github.com/nophramel/RZSON_Wasserabfluss/views"
 	"log"
 	"os"
 	"strings"
