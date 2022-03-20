@@ -28,7 +28,7 @@ type MeasurementData struct {
 // SetupVirtualStation Setting up the virtual Station RZSON to calculate estimated reading for Niedergösgen
 func SetupVirtualStation() Messstation {
 	var station01 Messstation
-	station01.Station = "RZSO Niedergösgen"
+	station01.Station = "RZSO Niederamt"
 	station01.River = "Aare"
 	return station01
 }
