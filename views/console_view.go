@@ -22,7 +22,7 @@ func PrintMenu() {
 		`
 ==================================================================================================
 =====================             Wählen Sie Ihre Option unten mit            ====================
-=====================   dem entsprechenden Buchstaben aus drücken und Enter   ====================
+=====================   dem entsprechenden Buchstaben aus und drücken Enter   ====================
 #
 # 			r.		Aktualisiere die Messwerte.
 #
