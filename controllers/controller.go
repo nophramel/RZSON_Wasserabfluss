@@ -72,7 +72,7 @@ func parseCommand(input string) {
 		// Terminate application with a 5 sec delay
 		views.Clear()
 		views.PrintGoodbye()
-		time.Sleep(5 * time.Second)
+		time.Sleep(3 * time.Second)
 		views.ShutDown()
 		break
 	}

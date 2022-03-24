@@ -12,7 +12,7 @@ func PrintHeader() {
 	fmt.Println(
 		`
 ==================================================================================================
-====================            Wasserabfluss RZSON auf einen Blick            ====================
+====================            Wasserabfluss RZSON auf einen Blick            ===================
 ==================================================================================================`)
 }
 
@@ -52,15 +52,20 @@ func PrintStations(stations []models.Messstation, virtualStation models.Messstat
 
 // Clear clears the console view
 func Clear() {
-	c := exec.Command("clear", "/c", "cls")
+	c := exec.Command("clear") //"cls", "/c",
 	c.Stdout = os.Stdout
 	c.Run()
+}
+
+func PrintError() {
+	fmt.Println(`
+Eine oder mehrere Messstationen von hydrodaten.admin.ch scheinen nicht erreichbar zu sein. Prüfen Sie ihre Internetverbindung oder versuchen Sie es später nochmal.`)
 }
 
 // PrintGoodbye prints a goodbye message to the console
 func PrintGoodbye() {
 	fmt.Println(`
-Die Applikation wird in 5 Sekunden beendet.
+Die Applikation wird in 3 Sekunden beendet.
 Auf Wiedersehen!`)
 }
 

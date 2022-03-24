@@ -2,6 +2,7 @@ package models
 
 import (
 	"encoding/csv"
+	"fmt"
 	"net/http"
 	"strconv"
 	"time"
@@ -69,6 +70,8 @@ func SetupStations() []Messstation {
 func ReadCSVFromUrl(url string) ([][]string, error) {
 	table, err := http.Get(url)
 	if err != nil {
+		fmt.Println("Die Adresse", url, `scheint
+nicht erreichbar zu sein. Prüfen Sie Ihre Internetverbindung oder versuchen Sie es später nocheinmal.`)
 		return nil, err
 	}
 
@@ -79,7 +82,6 @@ func ReadCSVFromUrl(url string) ([][]string, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	return data, nil
 }
 
