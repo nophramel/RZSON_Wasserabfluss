@@ -57,11 +57,6 @@ func Clear() {
 	c.Run()
 }
 
-func PrintError() {
-	fmt.Println(`
-Eine oder mehrere Messstationen von hydrodaten.admin.ch scheinen nicht erreichbar zu sein. Prüfen Sie ihre Internetverbindung oder versuchen Sie es später nochmal.`)
-}
-
 // PrintGoodbye prints a goodbye message to the console
 func PrintGoodbye() {
 	fmt.Println(`

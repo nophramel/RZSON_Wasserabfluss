@@ -66,7 +66,7 @@ func SetupStations() []Messstation {
 	return stations
 }
 
-// ReadCSVFromUrl Get .csv from URL
+// ReadCSVFromUrl gets .csv from URL
 func ReadCSVFromUrl(url string) ([][]string, error) {
 	table, err := http.Get(url)
 	if err != nil {
