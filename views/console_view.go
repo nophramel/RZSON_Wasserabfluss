@@ -3,8 +3,6 @@ package views
 import (
 	"fmt"
 	"github.com/nophramel/RZSON_Wasserabfluss/models"
-	"os"
-	"os/exec"
 )
 
 // PrintHeader prints the header in console
@@ -50,21 +48,9 @@ func PrintStations(stations []models.Messstation, virtualStation models.Messstat
 
 }
 
-// Clear clears the console view
-func Clear() {
-	c := exec.Command("clear") //"cls", "/c",
-	c.Stdout = os.Stdout
-	c.Run()
-}
-
 // PrintGoodbye prints a goodbye message to the console
 func PrintGoodbye() {
 	fmt.Println(`
 Die Applikation wird in 3 Sekunden beendet.
 Auf Wiedersehen!`)
-}
-
-// ShutDown terminates the application
-func ShutDown() {
-	os.Exit(0)
 }

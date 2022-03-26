@@ -6,13 +6,14 @@ import (
 	"github.com/nophramel/RZSON_Wasserabfluss/views"
 	"log"
 	"os"
+	"os/exec"
 	"strings"
 	"time"
 )
 
 //Run Starts the application
 func Run() {
-	views.Clear()
+	clear()
 	views.PrintHeader()
 	stations, virtualStation := getLatestData()
 	views.PrintStations(stations, virtualStation)
@@ -65,15 +66,27 @@ func parseCommand(input string) {
 	case input == "c":
 		// Clear view and print menu
 		views.PrintHeader()
-		views.Clear()
+		clear()
 		views.PrintMenu()
 		break
 	case input == "q":
 		// Terminate application with a 5 sec delay
-		views.Clear()
+		clear()
 		views.PrintGoodbye()
 		time.Sleep(3 * time.Second)
-		views.ShutDown()
+		shutDown()
 		break
 	}
+}
+
+// Clear clears the console view
+func clear() {
+	c := exec.Command("clear") //"cls", "/c",
+	c.Stdout = os.Stdout
+	c.Run()
+}
+
+// ShutDown terminates the application
+func shutDown() {
+	os.Exit(0)
 }
