@@ -43,7 +43,7 @@ func PrintStations(stations []models.Messstation, virtualStation models.Messstat
 
 	}
 	fmt.Println("==================================================================================================")
-	fmt.Printf("%8s  %8s | %21s | %10.f m³/s | %21s\n", "Total:", virtualStation.River, virtualStation.Station, virtualStation.Measurements.LastReading, "*Abflussmenge in ca. 1h zu erwarten")
+	fmt.Printf("%8s  %8s | %21s | %10.f m³/s | %21s\n", "Total:", virtualStation.River, virtualStation.Station, virtualStation.Measurements.LastReading, "Abflussmenge in ca. 1h zu erwarten")
 	fmt.Println("==================================================================================================")
 
 }
