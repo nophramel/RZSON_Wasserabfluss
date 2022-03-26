@@ -19,10 +19,10 @@ func PrintMenu() {
 	fmt.Println(
 		`
 ==================================================================================================
-=====================             Wählen Sie Ihre Option unten mit            ====================
-=====================   dem entsprechenden Buchstaben aus und drücken Enter   ====================
+====================              Wählen Sie Ihre Option unten mit             ===================
+====================  dem entsprechenden Buchstaben aus und drücken Sie Enter  ===================
 #
-# 			r.		Aktualisiere die Messwerte.
+# 			r.		Aktualisiere die Messwerte
 #
 # 			c.		Leere die Ausgabe und zeige die Übersicht an
 # 			q.		App beenden
